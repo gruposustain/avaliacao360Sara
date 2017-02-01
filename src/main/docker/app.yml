@@ -1,0 +1,16 @@
+version: '2'
+services:
+    avaliacao630sara-app:
+        image: avaliacao630sara
+        external_links:
+            - avaliacao630sara-postgresql:postgresql
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/avaliacao630Sara
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+        ports:
+            - 8080:8080
+    avaliacao630sara-postgresql:
+        extends:
+            file: postgresql.yml
+            service: avaliacao630sara-postgresql
