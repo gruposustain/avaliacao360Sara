@@ -1,0 +1,45 @@
+
+<div>
+    <h2><span data-translate="avaliacao630SaraApp.team.detail.title">Team</span> {{vm.team.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="avaliacao630SaraApp.team.nome">Nome</span></dt>
+        <dd>
+            <span>{{vm.team.nome}}</span>
+        </dd>
+        <dt><span data-translate="avaliacao630SaraApp.team.descricao">Descricao</span></dt>
+        <dd>
+            <span>{{vm.team.descricao}}</span>
+        </dd>
+        <dt><span data-translate="avaliacao630SaraApp.team.ativo">Ativo</span></dt>
+        <dd>
+            <span>{{vm.team.ativo}}</span>
+        </dd>
+        <dt><span data-translate="avaliacao630SaraApp.team.dataCriacao">Data Criacao</span></dt>
+        <dd>
+            <span>{{vm.team.dataCriacao | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="avaliacao630SaraApp.team.lider">Lider</span></dt>
+        <dd>
+            {{vm.team.lider.lastName}}
+        </dd>
+        <dt><span data-translate="avaliacao630SaraApp.team.membros">Membros</span></dt>
+        <dd>
+            <span ng-repeat="membros in vm.team.membros">
+                {{membros.}}{{$last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="team-detail.edit({id:vm.team.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>
